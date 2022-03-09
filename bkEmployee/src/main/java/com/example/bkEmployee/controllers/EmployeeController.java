@@ -17,9 +17,12 @@ import com.example.bkEmployee.services.EmployeeService;
 @RequestMapping({"/employee"})
 public class EmployeeController {
 
-	@Autowired
 	EmployeeService es;
 	
+	@Autowired
+	public EmployeeController(EmployeeService es2) {
+		this.es = es2;
+	}
 	@GetMapping
 	public List<Employee> searchAllEmployees(){
 		return es.searchAll();
